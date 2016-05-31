@@ -13,6 +13,5 @@ public class StockOrderProcessorImpl implements StockOrdersProcessor {
             Order saleOrder = stockExchangeService.getSaleOrderByCompanyName(purchaseOrder.getCompany(), orders);
             stockExchangeService.processAnOrder(saleOrder, purchaseOrder);
         }
-
     }
 }

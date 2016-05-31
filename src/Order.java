@@ -52,7 +52,14 @@ public class Order {
         this.stockRemaining = quantity;
     }
 
+    public Integer getStockRemaining() {
+        return stockRemaining;
+    }
+
     public void setOrderStatus(String status){
         this.orderStatus = status;
+    }
+    public String getStatus() {
+        return orderStatus;
     }
 }
