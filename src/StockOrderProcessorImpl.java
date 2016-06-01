@@ -1,17 +1,28 @@
 import java.util.List;
+import java.util.Objects;
 
 public class StockOrderProcessorImpl implements StockOrdersProcessor {
 
     StockExchangeService stockExchangeService;
     @Override
-    public void processPurchaseOrders(List<Order> orders) {
+    public void processOrders(List<Order> orders) {
         stockExchangeService = new StockExchangeServiceImpl();
 
-        List<Order> purchaseOrders = stockExchangeService.getAllPurchaseOrders(orders);
+        for (Order order : orders) {
+            if(!Objects.equals(order.getStatus(), "Closed")){
+                Order oppositeTypeOrder = null;
+                if(order.getSide().equals("Buy")){
+                    oppositeTypeOrder = stockExchangeService.getSellOrder(order.getCompany(), orders);
+                }
+                else
+                if(order.getSide().equals("Sell")){
+                    oppositeTypeOrder = stockExchangeService.getPurchaseOrder(order.getCompany(), orders);
+                }
 
-        for (Order purchaseOrder : purchaseOrders) {
-            Order saleOrder = stockExchangeService.getSaleOrderByCompanyName(purchaseOrder.getCompany(), orders);
-            stockExchangeService.processAnOrder(saleOrder, purchaseOrder);
+                if(oppositeTypeOrder != null){
+                    stockExchangeService.processSaleAndPurchaseOrders(order, oppositeTypeOrder);
+                }
+            }
         }
     }
 }

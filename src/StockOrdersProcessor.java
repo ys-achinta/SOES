@@ -2,5 +2,5 @@ import java.util.List;
 
 public interface StockOrdersProcessor {
 
-    public void processPurchaseOrders(List<Order> orders);
+    public void processOrders(List<Order> orders);
 }

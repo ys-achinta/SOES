@@ -1,13 +1,12 @@
 public class Order {
 
-    String companyName;
-    String orderStatus;
-    String side;
+    private String companyName;
+    private Integer stockRemaining;
+    private Integer stockQuantity;
+    private Integer stockId;
 
-    Integer stockRemaining;
-    Integer stockQuantity;
-    Integer stockId;
-
+    private String orderStatus = "Open" ;
+    private String side;
 
     public Order(Integer stockId, String side, String companyName, Integer stockQuantity){
         this.stockId = stockId;

@@ -45,7 +45,7 @@ public class CSVRead {
 
     private void processOrders(List<Order> orders) {
         StockOrdersProcessor stockOrderProcessor = new StockOrderProcessorImpl();
-        stockOrderProcessor.processPurchaseOrders(orders);
+        stockOrderProcessor.processOrders(orders);
     }
 }
 
