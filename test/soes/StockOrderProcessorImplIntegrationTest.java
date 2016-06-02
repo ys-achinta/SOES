@@ -1,7 +1,7 @@
 package soes;
 import org.junit.Test;
 import soes.api.Order;
-import soes.api.impl.StockOrderProcessorImpl;
+import soes.api.StockOrderProcessorImpl;
 import soes.api.StockOrdersProcessor;
 import java.util.ArrayList;
 import java.util.List;

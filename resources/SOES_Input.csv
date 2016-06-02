@@ -1,6 +1,7 @@
 Stock Id,Side,Company,Quantity
-1,Buy,ABC,10
-2,Sell,XYZ,15
-3,Sell,ABC,13
-4,Buy,XYZ,10
-5,Buy,XYZ,8
+1,Sell,XYZ,10
+2,Sell,ABC,20
+3,Buy,XYZ,20
+4,Sell,XYZ,20
+5,Buy,ABC,15
+6,Buy,ABC,5

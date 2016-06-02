@@ -1,6 +1,7 @@
 Stock Id,Side,Company,Quantity
-1,Buy,ABC,10,0,Closed
-2,Sell,XYZ,15,0,Closed
-3,Sell,ABC,13,3,Open
-4,Buy,XYZ,10,0,Closed
-5,Buy,XYZ,8,3,Open
+1,Sell,XYZ,10,0,Closed
+2,Sell,ABC,20,0,Closed
+3,Buy,XYZ,20,0,Closed
+4,Sell,XYZ,20,10,Open
+5,Buy,ABC,15,0,Closed
+6,Buy,ABC,5,0,Closed

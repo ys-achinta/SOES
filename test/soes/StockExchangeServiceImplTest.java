@@ -3,7 +3,7 @@ package soes;
 import org.junit.Test;
 import soes.api.Order;
 import soes.api.StockExchangeService;
-import soes.api.impl.StockExchangeServiceImpl;
+import soes.api.StockExchangeServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +70,9 @@ public class StockExchangeServiceImplTest {
         Integer quantityToBeSold = 5;
 
         stockExchangeService.updatePurchaseOrder(quantityToBeSold, quantityToBePurchased, order1);
-        assertEquals("Purchase soes.api.Order Status Is Open Since Less Quantity Is Sold Than Already Present",
+        assertEquals("Purchase Order Status Is Open Since Less Quantity Is Sold Than Already Present",
                 "Open", order1.getStatus());
-        assertEquals("Purchase soes.api.Order Remaining Quantity",
+        assertEquals("Purchase Order Remaining Quantity",
                 new Integer(quantityToBePurchased-quantityToBeSold) , order1.getStockRemaining());
     }
 
@@ -86,9 +86,9 @@ public class StockExchangeServiceImplTest {
         Integer quantityToBeSold = 5;
 
         stockExchangeService.updatePurchaseOrder(quantityToBeSold, quantityToBePurchased, order1);
-        assertEquals("Purchase soes.api.Order Status Is Closed Since Less Quantity Is Purchased Than Sold",
+        assertEquals("Purchase Order Status Is Closed Since Less Quantity Is Purchased Than Sold",
                 "Closed", order1.getStatus());
-        assertEquals("Purchase soes.api.Order Remaining Quantity",
+        assertEquals("Purchase Order Remaining Quantity",
                 new Integer(0) , order1.getStockRemaining());
     }
 
@@ -112,11 +112,11 @@ public class StockExchangeServiceImplTest {
 
         stockExchangeService.processSaleAndPurchaseOrders(purchaseOrder, saleOrder);
 
-        assertEquals("Sale soes.api.Order is Open", "Open", saleOrder.getStatus());
-        assertEquals("Purchase soes.api.Order is Closed", "Closed", purchaseOrder.getStatus());
+        assertEquals("Sale Order is Open", "Open", saleOrder.getStatus());
+        assertEquals("Purchase Order is Closed", "Closed", purchaseOrder.getStatus());
 
-        assertEquals("Sale soes.api.Order Remaining", new Integer(10), saleOrder.getStockRemaining());
-        assertEquals("Purchase soes.api.Order Remaining", new Integer(0), purchaseOrder.getStockRemaining());
+        assertEquals("Sale Order Remaining", new Integer(10), saleOrder.getStockRemaining());
+        assertEquals("Purchase Order Remaining", new Integer(0), purchaseOrder.getStockRemaining());
     }
 
     @Test
@@ -127,11 +127,11 @@ public class StockExchangeServiceImplTest {
 
         stockExchangeService.processSaleAndPurchaseOrders(purchaseOrder, saleOrder);
 
-        assertEquals("Sale soes.api.Order is Closed", "Closed", saleOrder.getStatus());
-        assertEquals("Purchase soes.api.Order is Open", "Open", purchaseOrder.getStatus());
+        assertEquals("Sale Order is Closed", "Closed", saleOrder.getStatus());
+        assertEquals("Purchase Order is Open", "Open", purchaseOrder.getStatus());
 
-        assertEquals("Sale soes.api.Order Remaining", new Integer(0), saleOrder.getStockRemaining());
-        assertEquals("Purchase soes.api.Order Remaining", new Integer(10), purchaseOrder.getStockRemaining());
+        assertEquals("Sale Order Remaining", new Integer(0), saleOrder.getStockRemaining());
+        assertEquals("Purchase Order Remaining", new Integer(10), purchaseOrder.getStockRemaining());
     }
 
     @Test
@@ -144,11 +144,11 @@ public class StockExchangeServiceImplTest {
 
         stockExchangeService.processSaleAndPurchaseOrders(purchaseOrder, saleOrder);
 
-        assertEquals("Sale soes.api.Order is Open", "Open", saleOrder.getStatus());
-        assertEquals("Purchase soes.api.Order is Closed", "Closed", purchaseOrder.getStatus());
+        assertEquals("Sale Order is Open", "Open", saleOrder.getStatus());
+        assertEquals("Purchase Order is Closed", "Closed", purchaseOrder.getStatus());
 
-        assertEquals("Sale soes.api.Order Remaining", new Integer(5), saleOrder.getStockRemaining());
-        assertEquals("Purchase soes.api.Order Remaining", new Integer(0), purchaseOrder.getStockRemaining());
+        assertEquals("Sale Order Remaining", new Integer(5), saleOrder.getStockRemaining());
+        assertEquals("Purchase Order Remaining", new Integer(0), purchaseOrder.getStockRemaining());
     }
 
     @Test
@@ -161,11 +161,11 @@ public class StockExchangeServiceImplTest {
 
         stockExchangeService.processSaleAndPurchaseOrders(purchaseOrder, saleOrder);
 
-        assertEquals("Sale soes.api.Order is Closed", "Closed", saleOrder.getStatus());
-        assertEquals("Purchase soes.api.Order is Open", "Open", purchaseOrder.getStatus());
+        assertEquals("Sale Order is Closed", "Closed", saleOrder.getStatus());
+        assertEquals("Purchase Order is Open", "Open", purchaseOrder.getStatus());
 
-        assertEquals("Sale soes.api.Order Remaining", new Integer(0), saleOrder.getStockRemaining());
-        assertEquals("Purchase soes.api.Order Remaining", new Integer(12), purchaseOrder.getStockRemaining());
+        assertEquals("Sale Order Remaining", new Integer(0), saleOrder.getStockRemaining());
+        assertEquals("Purchase Order Remaining", new Integer(12), purchaseOrder.getStockRemaining());
     }
 
     @Test
@@ -188,8 +188,8 @@ public class StockExchangeServiceImplTest {
         String companyName = "ABC";
         Order firstSellOrder = stockExchangeService.getSellOrder(companyName, listOfOrders);
 
-        assertEquals("First Sale soes.api.Order", order4.getStockId(), firstSellOrder.getStockId());
-        assertNotEquals("First Sale soes.api.Order Is Not Second soes.api.Order Since soes.api.Order is Closed",
+        assertEquals("First Sale Order", order4.getStockId(), firstSellOrder.getStockId());
+        assertNotEquals("First Sale Order Is Not Second soes.api.Order Since soes.api.Order is Closed",
                 order2.getStockId(), firstSellOrder.getStockId());
     }
 
@@ -211,7 +211,7 @@ public class StockExchangeServiceImplTest {
         String companyName1 = "XYZ";
         Order firstPurchaseOrderByCompany1 = stockExchangeService.getPurchaseOrder(companyName1, listOfOrders);
 
-        assertEquals("First Purchase soes.api.Order Of Company XYZ", order3.getStockId(), firstPurchaseOrderByCompany1.getStockId());
+        assertEquals("First Purchase Order Of Company XYZ", order3.getStockId(), firstPurchaseOrderByCompany1.getStockId());
 
         order1.setOrderStatus("Closed");
         String companyName2 = "ABC";
